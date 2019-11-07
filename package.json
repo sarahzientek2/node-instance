@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index"
+  },
+  "name": "node-instance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sarahzientek/node-instance.git",
+  "author": "sarahzientek <a99742@aup.edu>",
+  "license": "MIT"
+}
