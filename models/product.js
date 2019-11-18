@@ -1,3 +1,13 @@
 exports.getAllProducts = function() {
-    return {}
+    return [
+        {
+            id: 1,
+            name: "laptop" 
+        },
+        {
+            id: 2,
+            name: "Screen" 
+        }
+
+    ]
 }
