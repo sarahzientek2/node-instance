@@ -3,7 +3,8 @@ var router = express.Router();
 
 const controller = require('../controllers/products.controller')
 
-/* GET products listing. */ 
-router.get('/', controller.get) 
-  
+/* GET product listing. */
+router.get('/', controller.getAll)
+router.get('/:productId', controller.getOne)
+
 module.exports = router;
