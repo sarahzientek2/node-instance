@@ -1,26 +1,19 @@
 {
-  "name": "node",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/AUP-CS3051/node.git",
-  "author": "Sarah Zientek <a99742@aup.edu>",
-  "license": "MIT",
+  "name": "node-instance",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node bin/www",
-    "lint": "eslint --fix --ignore-path .gitignore .",
+    "start": "node ./bin/www",
     "test": "mocha"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "morgan": "^1.9.1",
-    "node-statsd": "^0.1.1",
-    "response-time": "^2.3.2"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-strongloop": "^2.1.0",
     "mocha": "^6.2.2",
     "supertest": "^4.0.2"
   }
