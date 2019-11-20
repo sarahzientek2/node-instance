@@ -1,25 +1,25 @@
-exports.getAllUsers = function() { 
+exports.getAllProducts = function() { 
     return [
         {
             id: 1,
-            name: "Sarah" 
+            name: "Laptop" 
         },
         {
             id: 2,
-            name: "David" }
+            name: "Screen" }
     ]
 }
 
-exports.getOneUser = function(userId) { 
-    switch (userId) {
+exports.getOneProduct = function(productId) { 
+    switch (productId) {
         case "1":
             return {
                 id: 1,
-                name: "Sarah" 
+                name: "Laptop" 
             }
         case "2": return {
             id: 2,
-            name: "David" 
+            name: "Screen" 
         }
     }
 }
