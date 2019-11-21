@@ -1,25 +1,11 @@
-exports.getAllUsers = function() { 
-    return [
-        {
-            id: 1,
-            name: "Sarah" 
-        },
-        {
-            id: 2,
-            name: "David" }
-    ]
-}
-
-exports.getOneUser = function(userId) { 
-    switch (userId) {
-        case "1":
-            return {
-                id: 1,
-                name: "Sarah" 
-            }
-        case "2": return {
-            id: 2,
-            name: "David" 
-        }
+exports.getProducts = async function() {
+    varMongoClient = require('mongodb').MongoClient
+    let client = await MongoClient.connect('mongodb://0.0.0.0:27017',{useUnifiedTopology:true})
+        let db = client.db('cs3051')
+        let result = await db.collection('users').
+            find().toArray()
+        client.close();
+        console.log(result)
+        return result
     }
-}
+    
