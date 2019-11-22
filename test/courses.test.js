@@ -1,0 +1,22 @@
+let request = require('supertest')
+let app = require('../app')
+let expect = require('chai').expect
+
+describe('Getting courses', () => {
+    it('should return the name and ids of all courses', async () => {
+        const res = await request(app)
+            .get('/api/courses')
+        expect(res.statusCode).equals(200)
+        expect(res.body).to.have.nested.property('data[0].name','Web Applications')
+        expect(res.body).to.have.nested.property('data[1].name','Communications Theory & Research Methods')
+        expect(res.body).to.have.nested.property('data[2].name','Languages & Data Structures')
+        expect(res.body).to.have.nested.property('data[3].name','Human-Computer Interaction')
+        expect(res.body).to.have.nested.property('data[3].name','Calculus 1')  
+    })
+    it('should return the name and id of a certain courses', async () => {
+        const res = await request(app)
+            .get('/api/courses/1')
+        expect(res.statusCode).equals(200)
+        expect(res.body).to.have.nested.property('data[0].name','Web Applications')
+    })
+})
