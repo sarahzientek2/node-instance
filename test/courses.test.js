@@ -34,6 +34,6 @@ describe('Creating courses', () => {
         res = await request(app)
         .get(`/api/courses/${id}`)
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data.name','Printer')
+        expect(res.body).to.have.nested.property('data.name','Web Applications')
         })
 })

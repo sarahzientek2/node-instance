@@ -31,6 +31,6 @@ describe('Creating products', () => {
         res = await request(app)
         .get(`/api/products/${id}`)
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data.name','Printer')
+        expect(res.body).to.have.nested.property('data.name','Laptop')
         })
 })
