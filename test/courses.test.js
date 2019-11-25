@@ -24,7 +24,7 @@ describe('Getting courses', () => {
 describe('Creating courses', () => {
     it('should create correctly', async () => {
         let newCourse = {name: "Printer"}
-        varres = await request(app)
+        var res = await request(app)
         .post('/api/courses')
         .send(newCourse)
         expect(res.statusCode).equals(201)
