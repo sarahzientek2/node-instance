@@ -31,7 +31,8 @@ describe('Creating products', () => {
         expect(res.body).to.have.property('data').to.have.property('id')
         const id = res.body.data.id
         res = await request(app)
-        .get(`/api/products/${id}`)expect(res.statusCode).equals(200)
+        .get(`/api/products/${id}`)
+        expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data.name','Printer')
         })
 })

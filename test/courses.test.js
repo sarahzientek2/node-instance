@@ -20,3 +20,20 @@ describe('Getting courses', () => {
         expect(res.body).to.have.nested.property('data[0].name','Web Applications')
     })
 })
+
+describe('Creating courses', () => {
+    it('should create correctly', async () => {
+        let newCourse = {name: "Printer"}
+        varres = await request(app)
+        .post('/api/courses')
+        .send(newCourse)
+        expect(res.statusCode).equals(201)
+        expect(res.body).to.have.property('data').to.have.property('message','Created ok')
+        expect(res.body).to.have.property('data').to.have.property('id')
+        const id = res.body.data.id
+        res = await request(app)
+        .get(`/api/courses/${id}`)
+        expect(res.statusCode).equals(200)
+        expect(res.body).to.have.nested.property('data.name','Printer')
+        })
+})
