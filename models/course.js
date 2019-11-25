@@ -1,5 +1,5 @@
-constmongoose = require('mongoose')
-const productSchema = new mongoose.Schema({
+const mongoose = require('mongoose')
+const courseSchema = new mongoose.Schema({
      name: String})
      
      

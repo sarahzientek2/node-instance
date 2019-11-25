@@ -1,6 +1,6 @@
-const model = require('../models/user')
+const User = require('../models/user')
 
-exports.getAll = function(req, res) { 
+exports.getAll = async function(req, res) { 
     let users = await User.find()
     res.json({data: users});
 }

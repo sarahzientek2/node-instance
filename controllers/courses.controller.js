@@ -1,6 +1,6 @@
-const model = require('../models/course')
+const Course = require('../models/course')
 
-exports.getAll = function(req, res) { 
+exports.getAll = async function(req, res) { 
     let courses = await Course.find()
     res.json({data: courses});
 }
