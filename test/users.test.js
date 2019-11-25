@@ -7,7 +7,7 @@ describe('Getting users', () => {
         const res = await request(app)
             .get('/api/users')
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name','Laptop')
+        expect(res.body).to.have.nested.property('data[0].name','Sarah')
         expect(res.body).to.have.nested.property('data[1].name','Chance')
         expect(res.body).to.have.nested.property('data[2].name','Anuel')
         expect(res.body).to.have.nested.property('data[3].name','Benito')
@@ -23,7 +23,7 @@ describe('Getting users', () => {
 describe('Creating users', () => {
     it('should create correctly', async () => {
         let newUser = {name: "Printer"}
-        varres = await request(app)
+        var res = await request(app)
         .post('/api/users')
         .send(newUser)
         expect(res.statusCode).equals(201)
