@@ -5,6 +5,7 @@ const controller = require('../controllers/products.controller')
 
 /* GET product listing. */
 router.get('/', controller.getAll)
+router.post ('/', controller.create)
 
 
 module.exports = router;

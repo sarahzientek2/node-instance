@@ -8,10 +8,10 @@ describe('Getting courses', () => {
             .get('/api/courses')
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name','Web Applications')
-        expect(res.body).to.have.nested.property('data[1].name','Communications Theory & Research Methods')
+        expect(res.body).to.have.nested.property('data[1].name','Communication Thoery & Research Methods')
         expect(res.body).to.have.nested.property('data[2].name','Languages & Data Structures')
         expect(res.body).to.have.nested.property('data[3].name','Human-Computer Interaction')
-        expect(res.body).to.have.nested.property('data[3].name','Calculus 1')  
+        expect(res.body).to.have.nested.property('data[4].name','Calculus 1')  
     })
     it('should return the name and id of a certain courses', async () => {
         const res = await request(app)
