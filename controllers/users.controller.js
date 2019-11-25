@@ -7,7 +7,7 @@ exports.getAll = function(req, res) {
 }
 
 exports.getOne = function(req, res) { 
-    let product = model.getOneUser(req.params.productId)
+    let product = model.getOneUser(req.params.userId)
     res.statusCode = 200
     res.json({data: user});
 }

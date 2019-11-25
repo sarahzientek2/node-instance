@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const controller = require('../controllers/courses.controller')
+const controller = require('../controllers/users.controller')
 
 /* GET users listing. */
-router.get('/', controller.getAll)
-router.get('/:userId', controller.getOne)
+router.get('/', controller.getAllUsers)
+router.get('/:userId', controller.getOneUser)
 
 module.exports = router;
