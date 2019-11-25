@@ -4,7 +4,7 @@ var router = express.Router();
 const controller = require('../controllers/users.controller')
 
 /* GET users listing. */
-router.get('/', controller.getAllUsers)
-router.get('/:userId', controller.getOneUser)
+router.get('/', controller.getAll)
+router.get('/:userId', controller.getOne)
 
 module.exports = router;
