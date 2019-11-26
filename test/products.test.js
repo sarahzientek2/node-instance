@@ -21,7 +21,7 @@ describe('Getting products', () => {
 describe('Creating products', () => {
     it('should create correctly', async () => {
         let newProduct = {
-            name: "Eraser"
+            name: "Printer"
     }
     var res = await request(app)
     .post('/api/products')
@@ -36,6 +36,6 @@ res = await request(app)
 .get(`/api/products/${id}`)
 expect(res.statusCode).equals(200)
 expect(res.body).
-to.have.nested.property('data.name','Eraser')
+to.have.nested.property('data.name','Printer')
         })
 })
