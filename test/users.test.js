@@ -2,23 +2,25 @@ let request = require('supertest')
 let app = require('../app')
 let expect = require('chai').expect
 
-describe('Getting users', () => {
+   describe('Getting users', () => {
     it('should return the name and ids of all users', async () => {
         const res = await request(app)
             .get('/api/users')
-        expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name','Sarah')
-        expect(res.body).to.have.nested.property('data[1].name','Chance')
-        expect(res.body).to.have.nested.property('data[2].name','Anuel')
-        expect(res.body).to.have.nested.property('data[3].name','Benito')
+              expect(res.statusCode).equals(200)
+              expect(res.body).to.have.nested.property('data[0].name','Nicky Jam')
+            expect(res.body).to.have.nested.property('data[1].name','Sarah')
+            expect(res.body).to.have.nested.property('data[2].name','Chance')
+            expect(res.body).to.have.nested.property('data[3].name','Anuel')
+            expect(res.body).to.have.nested.property('data[4].name','Benito')
     })
     it('should return the name and id of a certain user', async () => {
         const res = await request(app)
             .get('/api/users/1')
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name','Sarah')
+        expect(res.body).to.have.nested.property('data[0].name','Nicky Jam') 
     })
 })
+
 describe('Creating users', () => {
     it('should create correctly', async () => {
         let newUser = {
@@ -37,6 +39,6 @@ res = await request(app)
 .get(`/api/users/${id}`)
 expect(res.statusCode).equals(200)
 expect(res.body).
-to.have.nested.property('data.name','Nicky Jam')
+to.have.nested.property('data[0].name','Nicky Jam') 
         })
 })

@@ -7,21 +7,21 @@ describe('Getting products', () => {
         const res = await request(app)
             .get('/api/products')
               expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name','Printer')
-        expect(res.body).to.have.nested.property('data[1].name','Laptop') 
+        expect(res.body).to.have.nested.property('data[1].name','Printer')
+        expect(res.body).to.have.nested.property('data[2].name','Laptop')
     })
     it('should return the name and id of a certain product', async () => {
         const res = await request(app)
             .get('/api/products/1')
         expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data[0].name','Printer') 
+        expect(res.body).to.have.nested.property('data[0].name','Eraser') 
     })
 })
 
 describe('Creating products', () => {
     it('should create correctly', async () => {
         let newProduct = {
-            name: "Printer"
+            name: "Eraser"
     }
     var res = await request(app)
     .post('/api/products')
@@ -36,6 +36,6 @@ res = await request(app)
 .get(`/api/products/${id}`)
 expect(res.statusCode).equals(200)
 expect(res.body).
-to.have.nested.property('data.name','Printer')
+to.have.nested.property('data[0].name','Eraser')
         })
 })
