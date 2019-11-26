@@ -19,20 +19,24 @@ describe('Getting users', () => {
         expect(res.body).to.have.nested.property('data[0].name','Sarah')
     })
 })
-
 describe('Creating users', () => {
     it('should create correctly', async () => {
-        let newUser = {name: "Printer"}
-        var res = await request(app)
-        .post('/api/users')
-        .send(newUser)
-        expect(res.statusCode).equals(201)
-        expect(res.body).to.have.property('data').to.have.property('message','Created ok')
-        expect(res.body).to.have.property('data').to.have.property('id')
-        const id = res.body.data.id
-        res = await request(app)
-        .get(`/api/users/${id}`)
-        expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data.name','Sarah')
+        let newUser = {
+            name: "Nicky Jam"
+    }
+    var res = await request(app)
+    .post('/api/users')
+    .send(newUser)
+    expect(res.statusCode).equals(201)
+    expect(res.body).to.have.property('data').
+    to.have.property('message','Created ok')
+    expect(res.body).to.have.property('data')
+    .to.have.property('id')
+const id = res.body.data.id
+res = await request(app)
+.get(`/api/users/${id}`)
+expect(res.statusCode).equals(200)
+expect(res.body).
+to.have.nested.property('data.name','Nicky Jam')
         })
 })

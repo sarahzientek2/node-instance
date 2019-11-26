@@ -23,17 +23,22 @@ describe('Getting courses', () => {
 
 describe('Creating courses', () => {
     it('should create correctly', async () => {
-        let newCourse = {name: "Printer"}
-        var res = await request(app)
-        .post('/api/courses')
-        .send(newCourse)
-        expect(res.statusCode).equals(201)
-        expect(res.body).to.have.property('data').to.have.property('message','Created ok')
-        expect(res.body).to.have.property('data').to.have.property('id')
-        const id = res.body.data.id
-        res = await request(app)
-        .get(`/api/courses/${id}`)
-        expect(res.statusCode).equals(200)
-        expect(res.body).to.have.nested.property('data.name','Web Applications')
+        let newCourse = {
+            name: "Video Internship"
+    }
+    var res = await request(app)
+    .post('/api/courses')
+    .send(newCourse)
+    expect(res.statusCode).equals(201)
+    expect(res.body).to.have.property('data').
+    to.have.property('message','Created ok')
+    expect(res.body).to.have.property('data')
+    .to.have.property('id')
+const id = res.body.data.id
+res = await request(app)
+.get(`/api/courses/${id}`)
+expect(res.statusCode).equals(200)
+expect(res.body).
+to.have.nested.property('data.name','Video Internship')
         })
 })

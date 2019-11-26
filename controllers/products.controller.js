@@ -16,3 +16,11 @@ module.exports.create = async function(req, res) {
     res.statusCode = 201
     res.json({data:{id: newProduct._id, message: "Created ok"}})
     }
+
+    exports.init = async function() {
+    try {
+        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
+    } catch (error) {
+        console.log(error)
+    }
+}
