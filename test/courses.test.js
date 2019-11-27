@@ -39,6 +39,6 @@ res = await request(app)
 .get(`/api/courses/${id}`)
 expect(res.statusCode).equals(200)
 expect(res.body).
-to.have.nested.property('data.name','Video Internship')
+to.have.nested.property('data[0].name','Video Internship')
         })
 })
