@@ -2,7 +2,9 @@ const Course = require('../models/course')
 
 exports.getAll = async function(req, res) { 
     let courses = await Course.find()
+    console.log(JSON.stringify(courses))
     res.json({data: courses});
+
 }
 
 exports.getOne = async function(req, res) { 

@@ -2,6 +2,7 @@ const Product = require('../models/product')
 
 exports.getAll = async function(req, res) { 
     let products = await Product.find()
+    console.log(JSON.stringify(products))
     res.json({data: products});
 }
 
