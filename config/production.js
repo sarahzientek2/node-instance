@@ -1,0 +1,1 @@
+exports.db = 'mongodb+srv://sarahzientek:chance55@cluster0-tzpm8.mongodb.net/test?retryWrites=true&w=majority'

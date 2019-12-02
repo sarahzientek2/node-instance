@@ -12,6 +12,9 @@ const productRouter = require('./routes/products');
 const courseRouter = require('./routes/courses');
 var app = express();
 
+const cors = require('cors')
+app.use(cors())
+
 
 app.use(logger('dev'));
 app.use(express.json());

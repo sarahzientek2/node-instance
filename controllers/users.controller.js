@@ -1,12 +1,12 @@
 const User = require('../models/user')
 
-exports.getAll = async function(req, res) { 
+module.exports.getAll = async function(req, res) { 
     let users = await User.find()
     console.log(JSON.stringify(users))
     res.json({data: users});
 }
 
-exports.getOne = async function(req, res) { 
+module.exports.getOne = async function(req, res) { 
     let users = await User.find()
     res.json({data: users});
 }
