@@ -1,4 +1,5 @@
 const User = require('../models/user')
+constObjectId = require('mongoose').Types.ObjectId;
 
 module.exports.getAll = async function(req, res) { 
     let users = await User.find()
