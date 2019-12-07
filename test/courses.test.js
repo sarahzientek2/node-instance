@@ -35,7 +35,7 @@ let course6 = {
 }
 
 
-describe('Products', () => {
+describe('Courses', () => {
   beforeEach(async function() {
     let c = new Course(course)
     await c.save()

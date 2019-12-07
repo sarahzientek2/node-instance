@@ -1,28 +1,32 @@
 const Product = require('../models/product')
 constObjectId = require('mongoose').Types.ObjectId;
 
-exports.getAll = async function(req, res) { 
-    let products = await Product.find()
-    console.log(JSON.stringify(products))
-    res.json({data: products});
+module.exports.getAll = async function(req, res) {
+    try {
+      let products = await Product.find({product: new ObjectId(req.params.userId)})
+      res.json({data: products})
+    } catch (error) {
+      res.json({error: error})
+    }
 }
 
-exports.getOne = async function(req, res) { 
-    let products = await Product.find()
-    res.json({data: products});
+module.exports.getOne = async function(req, res) {
+  try {
+    let product = await Product.findOne({product: new ObjectId(req.params.productId)})
+    res.json({data: product})
+  } catch (error) {
+    res.end({error: error})
+  }
 }
 
 module.exports.create = async function(req, res) {
-    let product = new Product(req.body)
-    let newProduct = await product.save()
-    res.statusCode = 201
-    res.json({data:{id: newProduct._id, message: "Created ok"}})
-    }
-
-    exports.init = async function() {
-    try {
-        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
-    } catch (error) {
+        try {
+  let product = new Product(req.body)
+  let newProduct = await product.save()
+  res.statusCode = 201
+  res.json({data: {id: newProduct._id, message: "Created ok"}})
+      } catch (error) {
         console.log(error)
+        res.end({error: error})
     }
 }

@@ -1,29 +1,32 @@
 const Course = require('../models/course')
 constObjectId = require('mongoose').Types.ObjectId;
 
-exports.getAll = async function(req, res) { 
-    let courses = await Course.find()
-    console.log(JSON.stringify(courses))
-    res.json({data: courses});
-
+module.exports.getAll = async function(req, res) {
+    try {
+      let courses = await Course.find({user: new ObjectId(req.params.courseId)})
+      res.json({data: courses})
+    } catch (error) {
+      res.json({error: error})
+    }
 }
 
-exports.getOne = async function(req, res) { 
-    let courses = await Course.find()
-    res.json({data: courses});
+module.exports.getOne = async function(req, res) {
+  try {
+    let course = await Course.findOne({course: new ObjectId(req.params.userId)})
+    res.json({data: course})
+  } catch (error) {
+    res.end({error: error})
+  }
 }
 
 module.exports.create = async function(req, res) {
-    let course = new Course(req.body)
-    let newCourse = await course.save()
-    res.statusCode = 201
-    res.json({data:{id: newCourse._id, message: "Created ok"}})
-    }
-    
-    exports.init = async function() {
-    try {
-        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
-    } catch (error) {
+        try {
+  let course = new Course(req.body)
+  let newCourse = await course.save()
+  res.statusCode = 201
+  res.json({data: {id: newCourse._id, message: "Created ok"}})
+      } catch (error) {
         console.log(error)
+        res.end({error: error})
     }
 }
