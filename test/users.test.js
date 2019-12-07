@@ -3,32 +3,28 @@ const expect = require('chai').expect
 const app = require('../app')
 const User = require('../models/user')
 
+
 let user1 = {
-  _id: '5debbfb594513f69b4cf17b0',
   name: 'Sarah',
   age: '20',
   password: 'sarah1999'
 }
 let user2 = {
-  _id: '5debbfc694513f69b4cf17b1',
   name: 'Chance',
   age: '13',
   password: 'chancepuppyzientek'
 }
 let user3 = {
-  _id: '5debbfdb94513f69b4cf17b2',
   name: 'Anuel AA',
   age: '27',
   password: 'realhastalamuerte'
 }
 let user4 = {
-  _id: '5debbfea94513f69b4cf17b3',
   name: 'Benito',
   age: '25',
   password: 'badbunny'
 }
 let user5 = {
-  _id: '5debc01994513f69b4cf17b4',
   name: 'Nicky Jam',
   age: '38',
   password: 'elganador'
@@ -37,11 +33,11 @@ let user5 = {
 
 describe('Users', () => {
   beforeEach(async function() {
-    let u = new User(user)
+    let u = new User(user1)
     await u.save()
   });
   afterEach(async function() {
-    await User.deleteOne({_id: user._id})
+    await User.deleteOne({_id: user1._id})
 	});
 
   describe('Getting users', () => {
@@ -67,7 +63,7 @@ describe('Users', () => {
 
     it('should return all users', async () => {
         const res = await request(app)
-            .get(`/api/${user._id}/users`)
+            .get(`/api/${user1._id}/users`)
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Sarah')
         expect(res.body).to.have.nested.property('data[1].name', 'Chance')
@@ -84,17 +80,24 @@ describe('Users', () => {
 
       it('should create correctly and return id and message', async () => {
           var res = await request(app)
-            .post(`/api/${user._id}/users`)
+            .post(`/api/${user1._id}/users`)
             .send(user1)
           expect(res.statusCode).equals(201)
           expect(res.body).to.have.property('data').to.have.property('message','Created ok')
           expect(res.body).to.have.property('data').to.have.property('id')
           const id = res.body.data.id
           res = await request(app)
-            .get(`/api/${user._id}/users/${id}`)
+            .get(`/api/${user1._id}/users/${id}`)
           console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Sarah')
       })
   })
 })
+exports.init = async function() {
+    try {
+        await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
+    } catch (error) {
+        console.log(error)
+    }
+}
