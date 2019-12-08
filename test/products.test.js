@@ -3,15 +3,20 @@ const expect = require('chai').expect
 const app = require('../app')
 const Product = require('../models/product')
 
-let product1 = {
+let product1 =
+  {
   name: "Printer"
-}
-let product2 = {
+  }
+
+let product2 = 
+  {
   name: "Laptop"
-}
-let product3 = {
+  }
+ 
+let product3 = 
+  {
   name: "Eraser"
-}
+  }
 
 
 describe('Products', () => {
@@ -40,13 +45,15 @@ describe('Products', () => {
 
     it('should return all products', async () => {
         const res = await request(app)
-            .get(`/api/${product1._id}/products`)
+            .get('/api/products')
+            console.log(JSON.stringify(res.body)) 
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Printer')
         expect(res.body).to.have.nested.property('data[1].name', 'Laptop')
         expect(res.body).to.have.nested.property('data[2].name', 'Eraser')
     })
   })
+
 
   describe('Creating products', () => {
     afterEach(async function() {
@@ -57,6 +64,7 @@ describe('Products', () => {
           var res = await request(app)
             .post(`/api/${product1._id}/products`)
             .send(product1)
+            console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(201)
           expect(res.body).to.have.property('data').to.have.property('message','Created ok')
           expect(res.body).to.have.property('data').to.have.property('id')

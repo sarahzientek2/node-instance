@@ -18,7 +18,7 @@ let user3 = {
   name: "Anuel AA",
   age: "27",
   password: "realhastalamuerte"
-}
+  }
 let user4 = {
   name: "Benito",
   age: "25",
@@ -28,8 +28,8 @@ let user5 = {
   name: "Nicky Jam",
   age: "38",
   password: "elganador"
-}
 
+}
 
 describe('Users', () => {
   beforeEach(async function() {
@@ -63,15 +63,17 @@ describe('Users', () => {
 
     it('should return all users', async () => {
         const res = await request(app)
-            .get(`/api/${user1._id}/users`)
+            .get('/api/users')
+            console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Sarah')
         expect(res.body).to.have.nested.property('data[1].name', 'Chance')
         expect(res.body).to.have.nested.property('data[2].name', 'Anuel AA')
         expect(res.body).to.have.nested.property('data[3].name', 'Benito')
-        expect(res.body).to.have.nested.property('data[4].name', 'Nicky Jam')
+        expect(res.body).to.have.nested.property('data[4].name', 'Nicky Jam') 
     })
   })
+  
 
   describe('Creating users', () => {
     afterEach(async function() {
@@ -82,6 +84,7 @@ describe('Users', () => {
           var res = await request(app)
             .post(`/api/${user1._id}/users`)
             .send(user1)
+            console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(201)
           expect(res.body).to.have.property('data').to.have.property('message','Created ok')
           expect(res.body).to.have.property('data').to.have.property('id')

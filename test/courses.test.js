@@ -4,28 +4,52 @@ const app = require('../app')
 const Course = require('../models/course')
 
 let course1 = {
-  name: "Web Applications",
-  professor: "Tomer Libal"
+     data: [
+  {
+    name: "Web Applications",
+    professor: "Tomer Libal"
+  }
+ ] 
 }
 let course2 = {
+    data: [
+  {
   name: "Communication Theory & Research Methods",
   professor: "Youna Kim"
+  }
+ ] 
 }
 let course3 = {
+    data: [
+  {
   name: "Languages & Data Structures",
   professor: "Georgi Stojanov"
+  }
+ ] 
 }
 let course4 = {
+    data: [
+  {
   name: "Calculus 1",
   professor: "Taylor Coffman"
+  }
+ ] 
 }
-let course5 = {
+let course5 = { 
+    data: [
+  {
   name: "Human-Computer Interaction",
   professor: "Claudia Roda"
+  }
+ ] 
 }
 let course6 = {
+    data: [
+  {
   name: "Video Internship",
   professor: "none"
+  }
+ ] 
 }
 
 
@@ -64,7 +88,8 @@ describe('Courses', () => {
 
     it('should return all courses', async () => {
         const res = await request(app)
-            .get(`/api/${course1._id}/courses`)
+            .get('/api/courses')
+        console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Web Applications')
         expect(res.body).to.have.nested.property('data[1].name', 'Communication Theory & Research Methods')
@@ -74,6 +99,7 @@ describe('Courses', () => {
         expect(res.body).to.have.nested.property('data[5].name', 'Video Internship')
     })
   })
+   
 
   describe('Creating courses', () => {
     afterEach(async function() {
@@ -84,6 +110,7 @@ describe('Courses', () => {
           var res = await request(app)
             .post(`/api/${course1._id}/courses`)
             .send(course1)
+            console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(201)
           expect(res.body).to.have.property('data').to.have.property('message','Created ok')
           expect(res.body).to.have.property('data').to.have.property('id')
