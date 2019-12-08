@@ -3,10 +3,9 @@ var router = express.Router();
 
 const controller = require('../controllers/courses.controller')
 
-/* GET users listing. */
-router.get('/:userId/courses', controller.getAll)
-router.get('/:courseId', controller.getOne)
+/* GET courses listing. */
+router.get('/', controller.getAll)
+router.get('/:courseId/courses', controller.getOne)
 router.post ('/', controller.create)
-
 
 module.exports = router;

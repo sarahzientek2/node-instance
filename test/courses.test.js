@@ -4,28 +4,28 @@ const app = require('../app')
 const Course = require('../models/course')
 
 let course1 = {
-  name: 'Web Applications',
-  professor: 'Tomer Libal'
+  name: "Web Applications",
+  professor: "Tomer Libal"
 }
 let course2 = {
-  name: 'Communication Theory & Research Methods',
-  professor: 'Youna Kim'
+  name: "Communication Theory & Research Methods",
+  professor: "Youna Kim"
 }
 let course3 = {
-  name: 'Languages & Data Structures',
-  professor: 'Georgi Stojanov'
+  name: "Languages & Data Structures",
+  professor: "Georgi Stojanov"
 }
 let course4 = {
-  name: 'Calculus 1',
-  professor: 'Taylor Coffman'
+  name: "Calculus 1",
+  professor: "Taylor Coffman"
 }
 let course5 = {
-  name: 'Human-Computer Interaction',
-  professor: 'Claudia Roda'
+  name: "Human-Computer Interaction",
+  professor: "Claudia Roda"
 }
 let course6 = {
-  name: 'Video Internship',
-  professor: 'none'
+  name: "Video Internship",
+  professor: "none"
 }
 
 

@@ -3,7 +3,7 @@ constObjectId = require('mongoose').Types.ObjectId;
 
 module.exports.getAll = async function(req, res) {
     try {
-      let users = await Product.find({user: new ObjectId(req.params.userId)})
+      let users = await Product.find()
       res.json({data: users})
     } catch (error) {
       res.json({error: error})
@@ -12,7 +12,7 @@ module.exports.getAll = async function(req, res) {
 
 module.exports.getOne = async function(req, res) {
   try {
-    let user = await User.findOne({user: new ObjectId(req.params.userId)})
+    let user = await User.findOne()
     res.json({data: user})
   } catch (error) {
     res.end({error: error})

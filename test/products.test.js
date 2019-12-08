@@ -4,13 +4,13 @@ const app = require('../app')
 const Product = require('../models/product')
 
 let product1 = {
-  name: 'Printer'
+  name: "Printer"
 }
 let product2 = {
-  name: 'Laptop'
+  name: "Laptop"
 }
 let product3 = {
-  name: 'Eraser'
+  name: "Eraser"
 }
 
 
