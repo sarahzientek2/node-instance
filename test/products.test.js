@@ -21,16 +21,6 @@ let product3 =
   name: "Eraser"
   }
 
-
-describe('Products', () => {
-  beforeEach(async function() {
-    let p = new Product(product1)
-    await p.save()
-  });
-  afterEach(async function() {
-    await Product.deleteOne({_id: product1._id})
-	});
-
   describe('Getting products', () => {
     beforeEach(async function() {
       let p1 = new Product(product1)
@@ -79,7 +69,6 @@ describe('Products', () => {
           expect(res.body).to.have.nested.property('data.name', 'Printer')
       })
   })
-})
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});

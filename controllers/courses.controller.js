@@ -1,5 +1,5 @@
 const Course = require('../models/course')
-constObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports.getAll = async function(req, res) {
     try {

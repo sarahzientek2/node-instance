@@ -34,16 +34,6 @@ let course6 = {
   professor: "none"
 }
 
-
-describe('Courses', () => {
-  beforeEach(async function() {
-    let c = new Course(course1)
-    await c.save()
-  });
-  afterEach(async function() {
-    await Course.deleteOne({_id: course1._id})
-	});
-
   describe('Getting courses', () => {
     beforeEach(async function() {
       let c1 = new Course(course1)
@@ -104,7 +94,7 @@ describe('Courses', () => {
           expect(res.body).to.have.nested.property('data.name', 'Web Applications')
       })
   })
-})
+
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});

@@ -36,15 +36,6 @@ let user5 = {
 
 }
 
-describe('Users', () => {
-  beforeEach(async function() {
-    let u = new User(user1)
-    await u.save()
-  });
-  afterEach(async function() {
-    await User.deleteOne({_id: user1._id})
-	});
-
   describe('Getting users', () => {
     beforeEach(async function() {
       let u1 = new User(user1)
@@ -101,7 +92,6 @@ describe('Users', () => {
           expect(res.body).to.have.nested.property('data.name', 'Sarah')
       })
   })
-})
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
