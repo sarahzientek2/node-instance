@@ -61,7 +61,7 @@ let course6 = {
     it('should return all courses', async () => {
         const res = await request(app)
             .get('/api/courses')
-        console.log(JSON.stringify(res.body))
+            console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Web Applications')
         expect(res.body).to.have.nested.property('data[1].name', 'Communication Theory & Research Methods')
@@ -71,9 +71,9 @@ let course6 = {
         expect(res.body).to.have.nested.property('data[5].name', 'Video Internship')
     })
   })
-   
 
-  describe('Creating courses', () => {
+
+ describe('Creating courses', () => {
     afterEach(async function() {
       await Course.deleteOne({_id: course1._id})
     });
@@ -93,8 +93,9 @@ let course6 = {
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Web Applications')
       })
-  })
 
+    })
+    
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});

@@ -7,17 +7,17 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET products */
-router.get('/', function(req, res, next) {
+router.get('/products', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 /* GET users. */
-router.get('/', function(req, res, next) {
+router.get('/users', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 /* GET courses. */
-router.get('/', function(req, res, next) {
+router.get('/courses', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
