@@ -5,16 +5,19 @@ const Product = require('../models/product')
 
 let product1 =
   {
+  _id: "1debc0cd94513f69b4cf17b5",
   name: "Printer"
   }
 
 let product2 = 
   {
+  _id: "1debc0d894513f69b4cf17b6",
   name: "Laptop"
   }
  
 let product3 = 
   {
+  _id: "1debc0dd94513f69b4cf17b7",
   name: "Eraser"
   }
 

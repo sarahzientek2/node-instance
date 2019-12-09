@@ -4,52 +4,34 @@ const app = require('../app')
 const Course = require('../models/course')
 
 let course1 = {
-     data: [
-  {
+    _id: "1debc27294513f69b4cf17b8",
     name: "Web Applications",
     professor: "Tomer Libal"
-  }
- ] 
 }
 let course2 = {
-    data: [
-  {
+    _id: "1debc29194513f69b4cf17b9",
   name: "Communication Theory & Research Methods",
   professor: "Youna Kim"
-  }
- ] 
 }
 let course3 = {
-    data: [
-  {
+ _id: "1debc29e94513f69b4cf17ba",
   name: "Languages & Data Structures",
   professor: "Georgi Stojanov"
-  }
- ] 
 }
 let course4 = {
-    data: [
-  {
+ _id: "1debc2aa94513f69b4cf17bb",
   name: "Calculus 1",
   professor: "Taylor Coffman"
   }
- ] 
-}
 let course5 = { 
-    data: [
-  {
+    _id: "1debc2ba94513f69b4cf17bc",
   name: "Human-Computer Interaction",
   professor: "Claudia Roda"
-  }
- ] 
 }
 let course6 = {
-    data: [
-  {
+ _id: "1debc2db94513f69b4cf17bd",
   name: "Video Internship",
   professor: "none"
-  }
- ] 
 }
 
 
