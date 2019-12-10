@@ -38,7 +38,7 @@ let product3 =
 
     it('should return all products', async () => {
         const res = await request(app)
-            .get('/api')
+            .get(`/api/${product1._id}/products`)
             console.log(JSON.stringify(res.body)) 
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Printer')

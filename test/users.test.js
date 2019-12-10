@@ -59,7 +59,7 @@ let user5 = {
 
     it('should return all users', async () => {
         const res = await request(app)
-            .get('/api/users')
+           .get(`/api/${user1._id}/users`)
             console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Sarah')

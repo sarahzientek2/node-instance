@@ -60,7 +60,7 @@ let course6 = {
 
     it('should return all courses', async () => {
         const res = await request(app)
-            .get('/api')
+            .get(`/api/${course1._id}/courses`)
             console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Web Applications')
