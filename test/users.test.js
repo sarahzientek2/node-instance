@@ -36,6 +36,7 @@ let user5 = {
 
 }
 
+
   describe('Getting users', () => {
     beforeEach(async function() {
       let u1 = new User(user1)
@@ -59,19 +60,20 @@ let user5 = {
 
     it('should return all users', async () => {
         const res = await request(app)
-           .get(`/api/${user1._id}/users`)
+            .get(`/api/${user1._id}/users`)
             console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Sarah')
         expect(res.body).to.have.nested.property('data[1].name', 'Chance')
         expect(res.body).to.have.nested.property('data[2].name', 'Anuel AA')
         expect(res.body).to.have.nested.property('data[3].name', 'Benito')
-        expect(res.body).to.have.nested.property('data[4].name', 'Nicky Jam') 
+        expect(res.body).to.have.nested.property('data[4].name', 'Nicky Jam')
+        
     })
   })
-  
 
-  describe('Creating users', () => {
+
+ describe('Creating users', () => {
     afterEach(async function() {
       await User.deleteOne({_id: user1._id})
     });
@@ -91,7 +93,9 @@ let user5 = {
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Sarah')
       })
-  })
+
+    })
+    
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});

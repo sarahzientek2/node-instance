@@ -20,12 +20,12 @@ let product3 =
   _id: "1debc0dd94513f69b4cf17b7",
   name: "Eraser"
   }
-
-  describe('Getting products', () => {
+describe('Getting product', () => {
     beforeEach(async function() {
       let p1 = new Product(product1)
       let p2 = new Product(product2)
       let p3 = new Product(product3)
+
       await p1.save()
       await p2.save()
       await p3.save()
@@ -39,7 +39,7 @@ let product3 =
     it('should return all products', async () => {
         const res = await request(app)
             .get(`/api/${product1._id}/products`)
-            console.log(JSON.stringify(res.body)) 
+            console.log(JSON.stringify(res.body))
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Printer')
         expect(res.body).to.have.nested.property('data[1].name', 'Laptop')
@@ -48,7 +48,7 @@ let product3 =
   })
 
 
-  describe('Creating products', () => {
+ describe('Creating products', () => {
     afterEach(async function() {
       await Product.deleteOne({_id: product1._id})
     });
@@ -68,7 +68,9 @@ let product3 =
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Printer')
       })
-  })
+
+    })
+    
 exports.init = async function() {
     try {
         await mongoose.connect(env.db, {useNewUrlParser: true, useUnifiedTopology: true});
