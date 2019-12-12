@@ -55,7 +55,7 @@ describe('Getting product', () => {
 
       it('should create correctly and return id and message', async () => {
           var res = await request(app)
-            .post(`/api/${product1._id}/products`)
+            .post(`/api/products`)
             .send(product1)
             console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(201)
@@ -63,7 +63,7 @@ describe('Getting product', () => {
           expect(res.body).to.have.property('data').to.have.property('id')
           const id = res.body.data.id
           res = await request(app)
-            .get(`/api/${product1._id}/products/${id}`)
+            .get(`/api/products/${id}`)
           console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Printer')

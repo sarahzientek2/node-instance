@@ -6,6 +6,6 @@ const controller = require('../controllers/courses.controller')
 /* GET courses listing. */
 router.get('/:courseId/courses', controller.getAll)
 router.get('/:courseId/courses', controller.getOne)
-router.post ('/:courseId/courses', controller.create)
+router.post('/', controller.create)
 
 module.exports = router;

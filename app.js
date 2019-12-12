@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors')
 
 const config = require('./config')
 config.init()
@@ -14,9 +14,7 @@ var courseRouter = require('./routes/courses');
 
 var app = express();
 
-const cors = require('cors')
 app.use(cors())
-
 
 app.use(logger('dev'));
 app.use(express.json());

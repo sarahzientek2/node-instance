@@ -80,7 +80,7 @@ let user5 = {
 
       it('should create correctly and return id and message', async () => {
           var res = await request(app)
-            .post(`/api/${user1._id}/users`)
+            .post(`/api/users`)
             .send(user1)
             console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(201)
@@ -88,7 +88,7 @@ let user5 = {
           expect(res.body).to.have.property('data').to.have.property('id')
           const id = res.body.data.id
           res = await request(app)
-            .get(`/api/${user1._id}/users/${id}`)
+            .get(`/api/users/${id}`)
           console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Sarah')

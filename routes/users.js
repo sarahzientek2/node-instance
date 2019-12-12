@@ -6,6 +6,6 @@ const controller = require('../controllers/users.controller')
 /* GET users listing. */
 router.get('/:userId/users', controller.getAll)
 router.get('/:userId/users', controller.getOne)
-router.post ('/:userId/users', controller.create)
+router.post ('/', controller.create)
 
 module.exports = router;
