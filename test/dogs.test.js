@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 
 let user1 = {
-  _id: "1debbfea94513f69b4cf17b6",
+  _id: "1debbfea94513f69b4cf17b1",
   name: "Sarah",
   age: "20",
   email: "sarah@gmail.com",

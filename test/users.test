@@ -4,7 +4,7 @@ const app = require('../app')
 const User = require('../models/user')
 
 let user1 = {
-  _id: "1debbfea94513f69b4cf17b1",
+  _id: "1debbfea94513f69b4cf17b9",
   name: "Sarah",
   age: "20",
   email: "sarah@gmail.com",
@@ -42,8 +42,6 @@ let user5 = {
   email: "benito@gmail.com",
   password: "badbunny"
 }
-
-
 
 describe('Users', () => {
   beforeEach(async function() {
