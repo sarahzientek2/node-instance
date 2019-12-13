@@ -1,1 +1,1 @@
-exports.db ='mongodb://0.0.0.0:27017/testdb'
+exports.db ='mongodb://0.0.0.0:27017/dbtest'

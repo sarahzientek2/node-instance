@@ -5,26 +5,26 @@ const Dog = require('../models/dog')
 const User = require('../models/user')
 
 
-let user = {
-  _id: "1debbfb594513f69b4cf17b0",
+let user1 = {
+  _id: "1debbfea94513f69b4cf17b6",
   name: "Sarah",
   age: "20",
   email: "sarah@gmail.com",
   password: "sarah1999"
 }
 let dog1 = {
-    _id: "1debc27294513f69b4cf17b8",
+    _id: "1debbfea94513f69b4cf17b7",
     name: "Chance",
-    user: user
+    user: user1
 }
 
 describe('Dogs', () => {
   beforeEach(async function() {
-    let u = new User(user)
-    await u.save()
+    let u1 = new User(user1)
+    await u1.save()
   });
   afterEach(async function() {
-    await User.deleteOne({_id: user._id})
+    await User.deleteOne({_id: user1._id})
 	});
 
   describe('Getting dogs', () => {
@@ -38,7 +38,7 @@ describe('Dogs', () => {
 
     it('should return all dogs', async () => {
         const res = await request(app)
-            .get(`/api/${user._id}/dogs`)
+            .get(`/api/${user1._id}/dogs`)
         expect(res.statusCode).equals(200)
         expect(res.body).to.have.nested.property('data[0].name', 'Chance')
     })
@@ -51,14 +51,14 @@ describe('Dogs', () => {
 
       it('should create correctly and return id and message', async () => {
           var res = await request(app)
-            .post(`/api/${user._id}/dogs`)
+            .post(`/api/${user1._id}/dogs`)
             .send(dog1)
           expect(res.statusCode).equals(201)
           expect(res.body).to.have.property('data').to.have.property('message','Created ok')
           expect(res.body).to.have.property('data').to.have.property('id')
           const id = res.body.data.id
           res = await request(app)
-            .get(`/api/${user._id}/dogs/${id}`)
+            .get(`/api/${user1._id}/dogs/${id}`)
           console.log(JSON.stringify(res.body))
           expect(res.statusCode).equals(200)
           expect(res.body).to.have.nested.property('data.name', 'Chance')
