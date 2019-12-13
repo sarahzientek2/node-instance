@@ -8,9 +8,8 @@ const config = require('./config')
 config.init()
 
 var indexRouter = require('./routes/index');
-var userRouter = require('./routes/users');
-var productRouter = require('./routes/products');
-var courseRouter = require('./routes/courses');
+var usersRouter = require('./routes/users');
+var dogsRouter = require('./routes/dogs');
 
 var app = express();
 
@@ -23,8 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', productRouter);
-app.use('/api', userRouter);
-app.use('/api', courseRouter);
+app.use('/users', usersRouter);
+app.use('/api',dogsRouter)
 
 module.exports = app;
