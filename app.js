@@ -6,7 +6,7 @@ require('dotenv/config');
 
 //middlewares
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({extended:true}))
 //import routes
 const usersRoute = require('./routes/users');
 
