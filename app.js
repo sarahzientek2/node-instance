@@ -1,28 +1,26 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors')
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('dotenv/config');
 
-const config = require('./config')
-config.init()
+//middlewares
+app.use(bodyParser.json());
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var dogsRouter = require('./routes/dogs');
+//import routes
+const usersRoute = require('./routes/users');
 
-var app = express();
+app.use('/users', usersRoute);
 
-app.use(cors())
+//routes
+app.get('/', (req, res) => {
+    res.send('Express');
+});
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//connect to db
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => 
+console.log('connected to db')
+);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api',dogsRouter)
 
-module.exports = app;
+app.listen(3000);
